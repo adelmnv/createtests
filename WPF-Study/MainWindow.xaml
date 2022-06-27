@@ -1,0 +1,113 @@
+﻿<Window x:Class="WPF_Study.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF_Study"
+        mc:Ignorable="d"
+        Title="Реализация MVVM" Height="400" Width="500">
+    <Grid Background="#FFDDE2E2">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.4*"></RowDefinition>
+            <RowDefinition Height="1.5*"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="0.1*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+            <ColumnDefinition Width="10*"></ColumnDefinition>
+            <ColumnDefinition Width="3*"></ColumnDefinition>
+            <ColumnDefinition Width="0.3*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Rectangle Grid.Column="0" Grid.Row="5" Fill="Gray" Grid.ColumnSpan="5" ></Rectangle>
+        <Rectangle Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="5" Fill="#FF066552"></Rectangle>
+        <Grid Grid.Row="1" Grid.Column="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition Width="0.2*"></ColumnDefinition>
+                <ColumnDefinition Width="0.2*"></ColumnDefinition>
+                <ColumnDefinition Width="0.2*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.3*"></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition Height="0.3*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Column="1" Grid.Row="1" MouseLeftButtonDown="Save_click">
+                <Image Source="https://cdn-icons-png.flaticon.com/512/633/633585.png" Height="20" Width="20"></Image>
+            </TextBlock>
+            <TextBlock Grid.Column="2" Grid.Row="1" MouseLeftButtonDown="Delete_click">
+                <Image Source="https://cdn-icons-png.flaticon.com/512/3096/3096673.png" Height="20" Width="20"></Image>
+            </TextBlock>
+            <TextBlock Grid.Column="3" Grid.Row="1" MouseLeftButtonDown="Clear_click">
+                <Image Source="https://cdn-icons-png.flaticon.com/512/447/447047.png" Height="20" Width="20"></Image>
+            </TextBlock>
+        </Grid>
+        <Grid Grid.Row="1" Grid.Column="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.2*"></ColumnDefinition>
+                <ColumnDefinition Width="0.1*"></ColumnDefinition>
+                <ColumnDefinition Width="0.2*"></ColumnDefinition>
+                <ColumnDefinition Width="0.2*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.3*"></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition Height="0.3*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="1" Grid.Column="0" MouseLeftButtonDown="Next_click">
+                <Image Source="https://cdn-icons-png.flaticon.com/512/507/507256.png" Height="20" Width="20"></Image>
+            </TextBlock>
+            <TextBlock Grid.Row="1" Grid.Column="2" MouseLeftButtonDown="Previous_click">
+                <Image Source="https://cdn-icons-png.flaticon.com/512/507/507255.png" Height="20" Width="20"></Image>
+            </TextBlock>
+        </Grid>
+        <StackPanel Grid.Row="2" Grid.Column="0">
+            <TextBlock Text="1." FontSize="14" HorizontalAlignment="Center" x:Name="numtbx"/>
+        </StackPanel>
+        <StackPanel Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" x:Name="Questsp">
+            <TextBox FontSize="14"></TextBox>
+            <Rectangle Height="7"></Rectangle>
+            <TextBox  FontSize="14"></TextBox>
+            <Rectangle Height="7"></Rectangle>
+        </StackPanel>
+
+        <StackPanel Grid.Column="1" Grid.Row="3" x:Name="Butsp">
+            <CheckBox Height="25" Checked="Ckecked_click" ></CheckBox>
+            <CheckBox Height="25" Checked="Ckecked_click"></CheckBox>
+            <CheckBox Height="25" Checked="Ckecked_click"></CheckBox>
+            <CheckBox Height="25" Checked="Ckecked_click"></CheckBox>
+        </StackPanel>
+        <StackPanel Grid.Column="2" Grid.Row="3" x:Name="Answsp">
+            <TextBox></TextBox>
+            <Rectangle Height="7"></Rectangle>
+            <TextBox></TextBox>
+            <Rectangle Height="7"></Rectangle>
+            <TextBox></TextBox>
+            <Rectangle Height="7"></Rectangle>
+            <TextBox></TextBox>
+            <Rectangle Height="10"></Rectangle>
+        </StackPanel>
+        <Grid Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" Text="Ponts:" VerticalAlignment="Center" ></TextBlock>
+            <TextBox Grid.Column="1" Foreground="#FF066552" VerticalAlignment="Center" x:Name="Pointstbx"></TextBox>
+            <CheckBox Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FF066552" x:Name="Multiple" IsChecked="True" Checked="MultipleOn" Unchecked="MiltipleOff"></CheckBox>
+            <TextBlock Grid.Column="3" Text="Multiple answers" VerticalAlignment="Center"></TextBlock>
+            <CheckBox Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FF066552" x:Name="Required" IsChecked="True" IsEnabled="False"></CheckBox>
+            <TextBlock Grid.Column="5" Text="Required" VerticalAlignment="Center"></TextBlock>
+        </Grid>
+    </Grid>
+</Window>
